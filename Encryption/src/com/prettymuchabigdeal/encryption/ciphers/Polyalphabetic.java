@@ -1,9 +1,10 @@
-package com.prettymuchabigdeal.encryption;
+package com.prettymuchabigdeal.encryption.ciphers;
 
 public class Polyalphabetic {
 	
 	private String key;
 	private String message;
+	private String output;
 	
 	public Polyalphabetic(){
 		key = null;
@@ -15,15 +16,20 @@ public class Polyalphabetic {
 	}
 
 	public void setMessage(String m){
+
 		message = m;
 	}
 	
-	public String encode(){
+	public String getOutput(){
+		return output;
+	}
+	
+	public void encode(){
 		
 		if (key == null)
-			return "Key was not set";
+			output =  "Key was not set";
 		if (message == null)
-			return "Message was not set";
+			output = "Message was not set";
 		
 		int[] keyIA = new int[key.toCharArray().length];
 		for (int i = 0;i<keyIA.length;i++)
@@ -48,19 +54,19 @@ public class Polyalphabetic {
 		for (int i = 0;i<encoded.length;i++)
 			encoded[i] = (char)encodedIA[i];
 		
-		return new String(encoded);
+		output = new String(encoded);
 			
 		
 		
 		
 	}
 	
-	public String decode(){
+	public void decode(){
 		
 		if (key == null)
-			return "Key was not set";
+			output =  "Key was not set";
 		if (message == null)
-			return "Message was not set";
+			output = "Message was not set";
 		
 		int[] keyIA = new int[key.toCharArray().length];
 		for (int i = 0;i<keyIA.length;i++)
@@ -83,7 +89,7 @@ public class Polyalphabetic {
 		for (int i = 0;i<decoded.length;i++)
 			decoded[i] = (char)decodedIA[i];
 		
-		return new String(decoded);
+		output = new String(decoded);
 	
 	}
 }
