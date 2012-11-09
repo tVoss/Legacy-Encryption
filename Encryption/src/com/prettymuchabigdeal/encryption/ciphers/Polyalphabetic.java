@@ -1,29 +1,7 @@
 package com.prettymuchabigdeal.encryption.ciphers;
 
-public class Polyalphabetic {
-	
-	private String key;
-	private String message;
-	private String output;
-	
-	public Polyalphabetic(){
-		key = null;
-		message = null;
-	}
-	
-	public void setKey(String k){
-		key = k;
-	}
-
-	public void setMessage(String m){
-
-		message = m;
-	}
-	
-	public String getOutput(){
-		return output;
-	}
-	
+public class Polyalphabetic extends Cipher {
+		
 	public void encode(){
 		
 		if (key == null)
