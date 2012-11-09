@@ -7,14 +7,33 @@ public class Console {
 	
 	public static void main(String[] args) {
 		
-		String prompt = "null";
+		Cipher cipher = null;
+            
+                String prompt = "null";
 		boolean encoding = false;
 		boolean answered = false;
 		
 		Scanner read = new Scanner(System.in);
-		Polyalphabetic poly = new Polyalphabetic();
 		
 		while(!answered){
+			System.out.println("Please select cipher type\n" + 
+                                                "[P]olyalphabetic\n" + 
+                                                "[X]OR");
+			String input = read.nextLine();
+			if (input.toLowerCase().equals("p") || input.toLowerCase().equals("polyalphabetic")){
+				cipher = new Polyalphabetic();
+				answered = true;
+			}else if(input.toLowerCase().equals("x") || input.toLowerCase().equals("xor")){
+				cipher = new XOR();
+				answered = true;
+			}else{
+				System.out.println("Incorrect input! Please enter a valid cipher.");
+			}
+		}
+                
+                answered = false;
+                
+                while(!answered){
 			System.out.println("Whould you like to encode or decode? [E/D]");
 			String input = read.nextLine();
 			if (input.toLowerCase().equals("e") || input.toLowerCase().equals("encode")){
@@ -30,16 +49,17 @@ public class Console {
 			}
 		}
 		System.out.print("Type message to be " + prompt +": ");
-		poly.setMessage(read.nextLine());
+		cipher.setMessage(read.nextLine());
 		System.out.print("Type key to use: ");
-		poly.setKey(read.nextLine());
+                
+		cipher.setKey(read.nextLine());
 		
 		if(encoding)
-			poly.encode();
+			cipher.encode();
 		else
-			poly.decode();
+			cipher.decode();
 		
-		System.out.println(prompt+"ed message is: "+poly.getOutput());
+		System.out.println(prompt+"ed message is: "+cipher.getOutput());
 
 	}
 
