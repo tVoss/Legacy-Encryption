@@ -59,7 +59,7 @@ public class Console {
 		else
 			cipher.decode();
 		
-		System.out.println(prompt+"ed message is: "+cipher.getOutput());
+		System.out.println(prompt+" message is:"+cipher.getOutput());
 
 	}
 
