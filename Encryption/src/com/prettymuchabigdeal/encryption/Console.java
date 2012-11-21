@@ -18,13 +18,17 @@ public class Console {
 		while(!answered){
 			System.out.println("Please select cipher type\n" + 
                                                 "[P]olyalphabetic\n" + 
-                                                "[X]OR");
+                                                "[X]OR\n" + 
+                                                "[O]ne Time Pad");
 			String input = read.nextLine();
 			if (input.toLowerCase().equals("p") || input.toLowerCase().equals("polyalphabetic")){
 				cipher = new Polyalphabetic();
 				answered = true;
 			}else if(input.toLowerCase().equals("x") || input.toLowerCase().equals("xor")){
 				cipher = new XOR();
+				answered = true;
+			}else if(input.toLowerCase().equals("o") || input.toLowerCase().equals("one time pad")){
+				cipher = new OneTimePad();
 				answered = true;
 			}else{
 				System.out.println("Incorrect input! Please enter a valid cipher.");
