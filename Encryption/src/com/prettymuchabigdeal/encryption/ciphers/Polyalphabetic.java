@@ -1,5 +1,9 @@
 package com.prettymuchabigdeal.encryption.ciphers;
 
+/**
+*
+* @author Tyler
+*/
 public class Polyalphabetic extends Cipher {
 		
 	public void encode(){

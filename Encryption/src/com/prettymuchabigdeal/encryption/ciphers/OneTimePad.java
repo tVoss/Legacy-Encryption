@@ -2,6 +2,10 @@ package com.prettymuchabigdeal.encryption.ciphers;
 
 import java.util.Random;
 
+/**
+*
+* @author Tyler
+*/
 public class OneTimePad extends Cipher {
 
 	@Override

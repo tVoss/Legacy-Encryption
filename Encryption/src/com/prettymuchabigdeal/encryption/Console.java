@@ -3,6 +3,10 @@ package com.prettymuchabigdeal.encryption;
 import java.util.Scanner;
 import com.prettymuchabigdeal.encryption.ciphers.*;
 
+/**
+*
+* @author Tyler
+*/
 public class Console {
 	
 	public static void main(String[] args) {
