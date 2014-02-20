@@ -7,34 +7,43 @@ import com.prettymuchabigdeal.encryption.ciphers.*;
 *
 * @author Tyler
 */
-public class Console {
+public class Console 
+{
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		
 		Cipher cipher = null;
-            
-                String prompt = "null";
+
 		boolean encoding = false;
 		boolean answered = false;
 		
 		Scanner read = new Scanner(System.in);
 		
-		while(!answered){
+		while(!answered)
+		{
 			System.out.println("Please select cipher type\n" + 
                                                 "[P]olyalphabetic\n" + 
                                                 "[X]OR\n" + 
                                                 "[O]ne Time Pad");
 			String input = read.nextLine();
-			if (input.toLowerCase().equals("p") || input.toLowerCase().equals("polyalphabetic")){
+			if (input.toLowerCase().equals("p") || input.toLowerCase().equals("polyalphabetic"))
+			{
 				cipher = new Polyalphabetic();
 				answered = true;
-			}else if(input.toLowerCase().equals("x") || input.toLowerCase().equals("xor")){
+			}
+			else if(input.toLowerCase().equals("x") || input.toLowerCase().equals("xor"))
+			{
 				cipher = new XOR();
 				answered = true;
-			}else if(input.toLowerCase().equals("o") || input.toLowerCase().equals("one time pad")){
+			}
+			else if(input.toLowerCase().equals("o") || input.toLowerCase().equals("one time pad"))
+			{
 				cipher = new OneTimePad();
 				answered = true;
-			}else{
+			}
+			else
+			{
 				System.out.println("Incorrect input! Please enter a valid cipher.");
 			}
 		}
@@ -42,21 +51,26 @@ public class Console {
                 answered = false;
                 
                 while(!answered){
-			System.out.println("Whould you like to encode or decode? [E/D]");
+			System.out.println("Would you like to encode or decode? [E/D]");
 			String input = read.nextLine();
-			if (input.toLowerCase().equals("e") || input.toLowerCase().equals("encode")){
+			if (input.equalsIgnoreCase("e") || input.equalsIgnoreCase("encode"))
+			{
 				encoding = true;
-				prompt = "encoded";
+				input = "encoded";
 				answered = true;
-			}else if(input.toLowerCase().equals("d") || input.toLowerCase().equals("decode")){
+			}
+			else if(input.equalsIgnoreCase("d") || input.equalsIgnoreCase("decode"))
+			{
 				encoding = false;
-				prompt = "decoded";
+				input = "decoded";
 				answered = true;
-			}else{
+			}
+			else
+			{
 				System.out.println("Incorrect input! Please type either encode or decode");
 			}
 		}
-		System.out.print("Type message to be " + prompt +": ");
+		System.out.print("Type message to be " + input +": ");
 		cipher.setMessage(read.nextLine());
 		System.out.print("Type key to use: ");
                 
@@ -67,8 +81,8 @@ public class Console {
 		else
 			cipher.decode();
 		
-		System.out.println(prompt+" message is:"+cipher.getOutput());
+		System.out.println(input+" message is: "+cipher.getOutput());
 
-	}
+	}//End of main method
 
-}
+}//End of class
